@@ -113,7 +113,7 @@
                     <img :src="resultimg.userImage" alt="user">
                 </div>
             </div>
-            <h3>you're {{resultimg.userImage}}</h3>
+            <h3>you're {{resultimg.fullname}}</h3>
             <h4>{{resultimg.hero.occupation}} from {{resultimg.hero.universe}}</h4>
              <div class="fb-share-button" data-href="https://i.pinimg.com/originals/49/5e/88/495e884ae8cb9309bdee4cdb399a60ed.jpg" data-layout="button" data-size="large">
               <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Bagikan</a>
