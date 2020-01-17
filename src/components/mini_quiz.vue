@@ -148,7 +148,7 @@ export default {
 
       // You should have a server side REST API
       axios
-        .post("http://localhost:3000/upload", formData, {
+        .post("http://35.198.203.100/upload", formData, {
           headers: {
             "Content-Type": "multipart/form-data"
           }
