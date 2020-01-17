@@ -95,14 +95,14 @@
     <div class="contain-quiz" v-if="pageNumber === 5">
       <h4 class="mb-4 ">Upload your profile pic</h4>
       <form action="/profile" method="post" enctype="multipart/form-data" @submit.prevent="submitFile">
-      <div class="custom-file" >
-        <input type="file" class="custom-file-input" id="customFile" />
-        <label class="custom-file-label" for="customFile" >Choose file</label>
-      </div>
-      <div class="form-group mt-3">
-        <input type="submit" class="form-control btn btn-warning">
-      </div>
-</form>
+          <div class="custom-file" >
+            <input type="file" class="custom-file-input" id="customFile" @change="fileChange"/>
+            <label class="custom-file-label" for="customFile" >Choose file</label>
+          </div>
+          <div class="form-group mt-3">
+            <input type="submit" class="form-control btn btn-warning">
+          </div>
+    </form>
   {{image}}
     </div>
   </div>
@@ -118,8 +118,13 @@ export default {
   },
   props: ["page", "pageNumber", "back"],
   methods: {
+    fileChange (event) {
+      console.log(event.target.files[0], '<<>>')
+      this.image = event.target.files[0]
+    },
     submitFile() {
       let formData = new FormData();
+      console.log(this.image, 'imagenya ga ada apa ada ya')
       formData.append("image", this.image);
       console.log(">> formData >> ", formData);
 
