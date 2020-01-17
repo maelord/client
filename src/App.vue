@@ -5,7 +5,8 @@
       <div class="row justify-content-center">
         <button class="btn-lg btn-warning mid" @click.prevent="page = 'quiz'" v-if="page === 'login'">Start being superhero</button>
         <div class="miniquiz">
-          <miniquiz :page='page' :pageNumber='pageNumber' :back='back'></miniquiz>
+          <miniquiz :page='page' :pageNumber='pageNumber' :back='back' v-on:pageplus="pageplus"></miniquiz>
+
           <button class="btn-lg btn-warning mt-3" @click.prevent="backf" v-if="page === 'quiz' && pageNumber <= 4" >Back</button>
 
           <button class="btn-lg btn-warning mt-3" @click.prevent="pageNumber++" v-if="page === 'quiz' && pageNumber <= 4">Next</button>
@@ -30,9 +31,13 @@ export default {
     }
   },
   components: {
-    miniquiz
+    miniquiz,
+    result
   },
   methods: {
+    pageplus(){
+      this.pageNumber++
+    },
     backf() {
 
       this.back = 'Theres no turning back once youre on this path'
@@ -57,4 +62,5 @@ export default {
   .miniquiz {
     margin-top: 10rem;
   }
+ 
 </style>
