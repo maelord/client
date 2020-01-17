@@ -92,7 +92,7 @@
 
     <div class="contain-quiz" v-if="pageNumber === 5">
       <h4 class="mb-4 ">Upload your profile pic</h4>
-      <form action="/profile" method="post" enctype="multipart/form-data" @submit.prevent="submitFile" v-on:change="uploadFile">
+      <form action="/profile" method="post" enctype="multipart/form-data" @submit.prevent="submitFile">
         <div class="custom-file" >
           <input type="file" class="custom-file-input" id="customFile"  @change="fileChange"/>
           <label class="custom-file-label" for="customFile" >Choose file</label>
@@ -153,13 +153,13 @@ export default {
             "Content-Type": "multipart/form-data"
           }
         })
-        .then(function(data) {
+        .then(({data})=> {
           this.resultimg = data
           console.log(data)
           console.log("SUCCESS!!");
         })
-        .catch(function(err) {
-          console.log("FAILURE!!");
+        .catch((err) =>{
+       console.log("FAILURE!!");
         });
     },
     handleFileUpload() {
