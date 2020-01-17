@@ -1,5 +1,5 @@
 <template>
-    <div id="result">
+    <div id="result" v-if="pageNumber == 6">
         <div class="container">
             <div class="row">
                 <div class="col">
@@ -22,6 +22,14 @@ export default {
         return{
 
         }
-    }
+    },
+    props:["pageNumber"],
+
 }
 </script>
+<style lang="stylus" scoped>
+img{
+    height: 5rem;
+    width : 5rem;
+}
+</style>
