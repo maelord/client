@@ -104,7 +104,7 @@
     </div>
 
     <div id="result" v-if="pageNumber == 6">
-        <div class="container contain-quiz">
+        <div class="container contain-result">
             <div class="row">
                 <div class="col">
                     <img :src="resultimg.hero.image" alt="hero">
@@ -113,9 +113,9 @@
                     <img :src="resultimg.userImage" alt="user">
                 </div>
             </div>
-            <h3>you're {{resultimg.userImage}}</h3>
+            <h3>you're {{resultimg.hero.fullname}}</h3>
             <h4>{{resultimg.hero.occupation}} from {{resultimg.hero.universe}}</h4>
-             <div class="fb-share-button" data-href="https://i.pinimg.com/originals/49/5e/88/495e884ae8cb9309bdee4cdb399a60ed.jpg" data-layout="button" data-size="large">
+             <div class="fb-share-button" :data-href="resultimg.hero.image" data-layout="button" data-size="large">
               <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Bagikan</a>
              </div>
             <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" target="_blank" class="twitter-share-button" data-show-count="false">Tweet</a>
@@ -148,7 +148,7 @@ export default {
 
       // You should have a server side REST API
       axios
-        .post("http://35.198.203.100/upload", formData, {
+        .post("http://localhost:3000/upload", formData, {
           headers: {
             "Content-Type": "multipart/form-data"
           }
@@ -173,6 +173,11 @@ export default {
 .contain-quiz {
   background-color: white;
   opacity: 0.8;
+  border-radius: 5px;
+  padding: 4rem;
+}
+.contain-result {
+  background-color: white;
   border-radius: 5px;
   padding: 4rem;
 }
